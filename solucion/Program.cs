@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.EntityFrameworkCore;
+using solucion.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
