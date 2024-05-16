@@ -1,8 +1,7 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using solucion.Data;
+using Microsoft.EntityFrameworkCore;
 using solucion.Models;
+using solucion.Data;
 
 namespace solucion.Controllers;
     [Route("api/[Controller]")]
@@ -17,9 +16,11 @@ namespace solucion.Controllers;
         }
 
         [HttpGet]
-        public IActionResult ListarUsuarios()
+        public async Task<ActionResult<IEnumerable<User>>> ListarUsuarios()
         {
-            return View(_context.user.ToList());
+            return await _context.users.ToListAsync();
         }
 
     }
+
+

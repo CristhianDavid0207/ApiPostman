@@ -9,6 +9,6 @@ namespace solucion.Data
 
         }
 
-        public DbSet<User> user { get; set;}
+        public DbSet<User> users { get; set;}
     }
 }
