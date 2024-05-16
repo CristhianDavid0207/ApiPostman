@@ -5,6 +5,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<BaseContext>
+(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("mySqlConnection"),
+        Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.2-mysql")
+    )
+);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
