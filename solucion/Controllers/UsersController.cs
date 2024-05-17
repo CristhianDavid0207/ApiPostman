@@ -40,12 +40,13 @@ namespace solucion.Controllers;
 
         //Crear Usuario
         [HttpPost]
+        [Route("Create")]
         public async Task<ActionResult<User>> CrearUsuario(User user)
         {
             _context.users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPerson", new {id = user.Id}, user);
+            return CreatedAtAction("UsuarioId", new {id = user.Id}, user);
         }
 
         [HttpDelete("{id}")]
@@ -77,7 +78,7 @@ namespace solucion.Controllers;
             _context.Entry(user).State = EntityState.Modified; //Entry= busacar en el modelo y sobreescribe state= cambio el estado pero no se almacenado Entitystate.Modifi= modifica
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPerson", new {id = user.Id}, user);
+            return CreatedAtAction("UsuarioId", new {id = user.Id}, user);
 
         }
 
